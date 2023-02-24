@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# originally found on stackoverflow or github issue?
+
 #Args
 img=$1
 

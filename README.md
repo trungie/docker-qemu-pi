@@ -18,4 +18,7 @@ Need - test ansible playbooks on raspberry pi raspian os without hardware
 3. use vagrant to mount image and write userconf file to setup a login user - vagrant up, run `sudo ./firstboot.sh .....img`
 4. docker run -it --mount type=bind,source="$(pwd)"/2023-02-21-raspios-bullseye-armhf-lite.img,target=/sdcard/filesystem.img  lukechilds/dockerpi:vm
 
+# References
 
+- https://www.raspberrypi.com/news/raspberry-pi-bullseye-update-april-2022/
+- https://github.com/lukechilds/dockerpi
