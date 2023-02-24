@@ -22,6 +22,7 @@ Need - test ansible playbooks on raspberry pi raspian os without hardware
 
 - sudo dpkg-reconfigure openssh-server 
 - sudo systemctl start ssh.service
+- ssh -p 5022 berryboot@localhost
 
 # References
 
