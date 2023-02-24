@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# originally found on stackoverflow or github issue?
+# author github/agoldcheidt - https://github.com/lukechilds/dockerpi/issues/53
 
 #Args
 img=$1
