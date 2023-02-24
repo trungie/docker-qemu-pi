@@ -16,7 +16,12 @@ Need - test ansible playbooks on raspberry pi raspian os without hardware
 1. docker pull lukechilds/dockerpi:vm
 2. download raspberry pi os lite image https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-32-bit 
 3. use vagrant to mount image and write userconf file to setup a login user - vagrant up, run `sudo ./firstboot.sh .....img`
-4. docker run -it --mount type=bind,source="$(pwd)"/2023-02-21-raspios-bullseye-armhf-lite.img,target=/sdcard/filesystem.img  lukechilds/dockerpi:vm
+4. docker run -it --mount type=bind,source="$(pwd)"/2023-02-21-raspios-bullseye-armhf-lite.img,target=/sdcard/filesystem.img -p 5022:5022 lukechilds/dockerpi:vm
+
+# Handy
+
+- sudo dpkg-reconfigure openssh-server 
+- sudo systemctl start ssh.service
 
 # References
 
