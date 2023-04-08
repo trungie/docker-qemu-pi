@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# author github/agoldcheidt - https://github.com/lukechilds/dockerpi/issues/53
+# This script sets a username and password on a raspberry pi image, as the default image doesn't set one anymore.
+#
+# original author github/agoldcheidt - https://github.com/lukechilds/dockerpi/issues/53
 
 #Args
 img=$1
@@ -24,10 +26,15 @@ losetup loop55 -P $img
 #Mounting image boot partition
 sudo mount /dev/loop55p1 /mnt
 #Creating username and password into userconfig file
-echo 'berryboot:$6$uE1YmGMLJIuYRDA6$7uggLlPOnrfoFczREehC9C.rHVe2N5QQfK5Tbuio1bRAgob6/6j1iN8QyrJkvv4rfVbhsFICI.cPmKe.rT8Qi.' > /mnt/userconf.txt #Adding custom user account only for Raspberry Pi OS Lite
+echo 'pi:$6$uE1YmGMLJIuYRDA6$7uggLlPOnrfoFczREehC9C.rHVe2N5QQfK5Tbuio1bRAgob6/6j1iN8QyrJkvv4rfVbhsFICI.cPmKe.rT8Qi.' > /mnt/userconf.txt #Adding custom user account only for Raspberry Pi OS Lite
 echo ""
 #Unmounting image boot partition
 sudo umount /mnt
+
+sudo mount /dev/loop55p2 /mnt
+sudo cp /etc/ssh/ssh_host* /mnt/etc/ssh/
+sudo umount /mnt
+
 #Detaching the mount point
 sudo losetup -d /dev/loop55
 echo ""
